@@ -18,9 +18,14 @@ in { self, config, pkgs, ... }: {
   # changes in each release.
   home.stateVersion = "21.03";
 
+  # Be quiet, will you?
+  news.display = "silent";
+
   imports = [
     # I cannot live without you, my one true love...
     ./modules/emacs.nix
+    # Fix for: `can't set the locale; make sure $LC_* and $LANG are correct`
+    ./modules/man.nix
   ];
 
   # TODO Modulize: https://nixos.wiki/wiki/Module, https://github.com/mjlbach/nix-dotfiles/blob/flakes_v3/nixpkgs/machines/fedora/home.nix
@@ -48,7 +53,4 @@ in { self, config, pkgs, ... }: {
     envExtra = builtins.readFile "${homeDir}/.config/zsh/.zshenv";
     profileExtra = builtins.readFile "${homeDir}/.config/zsh/.zprofile";
   };
-
-  # Be quiet, will you?
-  news.display = "silent";
 }

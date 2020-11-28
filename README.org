@@ -7,7 +7,7 @@ reproducible builds across many computers. It can be installed as a standalone
 program in any linux distro and macOS or on top of it's own distro, =NixOS=.
 
 This repo is a collection of ~.nix~ files that constitute the configuration of
-dependencies of my system. This are located at the ~$HOME./config/nixpkgs~ folder.
+dependencies of my system. This are located at the ~$HOME/.config/nixpkgs~ folder.
 
 * Installation
 
