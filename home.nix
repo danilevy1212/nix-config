@@ -18,9 +18,12 @@ in { self, config, pkgs, ... }: {
   # changes in each release.
   home.stateVersion = "21.03";
 
-  # Sorry Stallman... TODO Put this in `config.nix`
-  nixpkgs.config.allowUnfree = true;
+  imports = [
+    # I cannot live without you, my one true love...
+    ./modules/emacs.nix
+  ];
 
+  # TODO Modulize: https://nixos.wiki/wiki/Module, https://github.com/mjlbach/nix-dotfiles/blob/flakes_v3/nixpkgs/machines/fedora/home.nix
   home.packages = with pkgs; [
     # System
     htop
@@ -34,23 +37,7 @@ in { self, config, pkgs, ... }: {
 
     # Social closeness
     rambox
-
-    # Doom emacs dependencies
-    fd
-    ripgrep
-    ## nix-mode
-    nixfmt
-    ## eshell
-    fish
   ];
-
-  # TODO Modulize: https://nixos.wiki/wiki/Module, https://github.com/mjlbach/nix-dotfiles/blob/flakes_v3/nixpkgs/machines/fedora/home.nix
-  # I cannot live without you, my one true love...
-  programs.emacs = {
-    enable = true;
-    # Unfortunately, vterm doesn't work installing it with doom.
-    extraPackages = epkgs: [ epkgs.vterm ];
-  };
 
   # ZSH, just as good as eshell
   programs.zsh = {
