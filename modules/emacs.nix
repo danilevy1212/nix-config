@@ -7,10 +7,14 @@
     fd
     ripgrep
 
-    ## :lang nix
+    # Fonts
+    hack-font
+    dejavu_fonts
+
+    # :lang nix
     nixfmt
 
-    ## :term eshell
+    # :term eshell
     fish
   ];
 
