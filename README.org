@@ -7,17 +7,17 @@ reproducible builds across many computers. It can be installed as a standalone
 program in any linux distro and macOS or on top of it's own distro, =NixOS=.
 
 This repo is a collection of ~.nix~ files that constitute the configuration of
-dependencies of my system. This are located at the ~./config/nixpkgs/~ folder.
+dependencies of my system. This are located at the ~$HOME./config/nixpkgs~ folder.
 
 * Installation
 
-Clone this repository in ~~/.config/nixpkgs~
+Clone this repository in ~$HOME/.config/nixpkgs~
 
 #+begin_src sh
-git clone git@github.com:danilevy1212/nix-config.git ~/.config/nixpkgs
+git clone git@github.com:danilevy1212/nix-config.git $HOME/.config/nixpkgs
 #+end_src
 
-Follow the [[https://github.com/nix-community/home-manager#installation][installation instructions]] of home-manager, which should install the
+Follow the [[https://github.com/nix-community/home-manager#installation][installation instructions]] of /home-manager/, which should install the
 rest of dependencies.
 
 ** Prerequesites
