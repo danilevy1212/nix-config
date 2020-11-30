@@ -44,6 +44,10 @@ in { self, config, pkgs, ... }: {
     rambox
   ];
 
+  # Allow fontconfig to discover fonts and configurations installed through home.packages and nix-env
+  fonts.fontconfig.enable = true;
+
+  # TODO https://discourse.nixos.org/t/advice-needed-installing-doom-emacs/8806/4 To install my own repos, last comment.
   # ZSH, just as good as eshell
   programs.zsh = {
     enable = true;
