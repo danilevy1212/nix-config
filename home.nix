@@ -24,8 +24,12 @@ in { self, config, pkgs, ... }: {
   imports = [
     # I cannot live without you, my one true love...
     ./modules/emacs.nix
+
     # Fix for: `can't set the locale; make sure $LC_* and $LANG are correct`
     ./modules/man.nix
+
+    # The functional WM
+    ./modules/xmonad.nix
   ];
 
   # TODO Modulize: https://nixos.wiki/wiki/Module, https://github.com/mjlbach/nix-dotfiles/blob/flakes_v3/nixpkgs/machines/fedora/home.nix

@@ -16,6 +16,10 @@
 
     # :term eshell
     fish
+
+    # :lang haskell
+    # haskell-language-server
+    # FIXME https://github.com/korayal/hls-nix
   ];
 
   # I cannot live without you, my one true love...
