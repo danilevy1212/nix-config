@@ -26,6 +26,6 @@
   programs.emacs = {
     enable = true;
     # Unfortunately, vterm doesn't work installing it with doom.
-    extraPackages = epkgs: [ epkgs.vterm ];
+    # extraPackages = epkgs: [ epkgs.vterm ];
   };
 }
