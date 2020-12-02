@@ -28,6 +28,9 @@ in { self, config, pkgs, ... }: {
     # Fix for: `can't set the locale; make sure $LC_* and $LANG are correct`
     ./modules/man.nix
 
+    # Networking utilities
+    ./modules/networking.nix
+
     # The functional WM
     ./modules/xmonad.nix
   ];
