@@ -49,6 +49,7 @@ in { self, config, pkgs, ... }: {
 
     # Social closeness
     rambox
+    skype
   ];
 
   # Allow fontconfig to discover fonts and configurations installed through home.packages and nix-env
