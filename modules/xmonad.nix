@@ -7,6 +7,7 @@
     cabal-install
     haskellPackages.hoogle
 
+    # TODO Remove after I make shell.nix for xmonad with this!
     # Dependencies for Haskell Language Server.
     xorg.libX11
     xorg.libXext

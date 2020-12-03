@@ -1,0 +1,5 @@
+* Inbox
+
+** TODO Look into lorri, https://christine.website/blog/how-i-start-nix-2020-03-08
+
+** TODO Might be of interested to start using GO in nix: https://nixos.wiki/wiki/Go
