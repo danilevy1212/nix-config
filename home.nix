@@ -22,6 +22,9 @@ in { self, config, pkgs, ... }: {
   news.display = "silent";
 
   imports = [
+    # Golang
+    ./modules/golang.nix
+
     # I cannot live without you, my one true love...
     ./modules/emacs.nix
 
@@ -64,5 +67,9 @@ in { self, config, pkgs, ... }: {
     initExtra = builtins.readFile "${homeDir}/.config/zsh/.zshrc";
     envExtra = builtins.readFile "${homeDir}/.config/zsh/.zshenv";
     profileExtra = builtins.readFile "${homeDir}/.config/zsh/.zprofile";
+  };
+
+  home.sessionVariables = {
+    NIX_PATH="$HOME/.nix-defexpr/channels:$NIX_PATH";
   };
 }
