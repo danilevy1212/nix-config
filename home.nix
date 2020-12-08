@@ -36,6 +36,9 @@ in { self, config, pkgs, ... }: {
 
     # The functional WM
     ./modules/xmonad.nix
+
+    # The functional lisp
+    ./modules/clojure.nix
   ];
 
   # TODO Modulize: https://nixos.wiki/wiki/Module, https://github.com/mjlbach/nix-dotfiles/blob/flakes_v3/nixpkgs/machines/fedora/home.nix
@@ -67,9 +70,5 @@ in { self, config, pkgs, ... }: {
     initExtra = builtins.readFile "${homeDir}/.config/zsh/.zshrc";
     envExtra = builtins.readFile "${homeDir}/.config/zsh/.zshenv";
     profileExtra = builtins.readFile "${homeDir}/.config/zsh/.zprofile";
-  };
-
-  home.sessionVariables = {
-    NIX_PATH="$HOME/.nix-defexpr/channels:$NIX_PATH";
   };
 }
