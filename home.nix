@@ -28,17 +28,20 @@ in { self, config, pkgs, ... }: {
     # I cannot live without you, my one true love...
     ./modules/emacs.nix
 
-    # Fix for: `can't set the locale; make sure $LC_* and $LANG are correct`
+    # Fix for: can't set the locale; make sure $LC_* and $LANG are correct`
     ./modules/man.nix
 
     # Networking utilities
     ./modules/networking.nix
 
-    # The functional WM
-    ./modules/xmonad.nix
+    # Xmonad, the functional WM.
+    ./modules/wm.nix
 
     # The functional lisp
     ./modules/clojure.nix
+
+    # It's all there, in the ☁.
+    ./modules/cloud.nix
   ];
 
   # TODO Modulize: https://nixos.wiki/wiki/Module, https://github.com/mjlbach/nix-dotfiles/blob/flakes_v3/nixpkgs/machines/fedora/home.nix
@@ -49,9 +52,6 @@ in { self, config, pkgs, ... }: {
 
     # Propietary musicality
     spotify
-
-    # Propietary storage, TODO May switch to gcloud soon.
-    dropbox
 
     # Social closeness
     rambox

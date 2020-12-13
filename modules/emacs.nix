@@ -26,6 +26,6 @@
   programs.emacs = {
     enable = true;
     # For vterm.
-    extraPackages = epkgs: [ epkgs.emacs-libvterm ];
+    extraPackages = epkgs: [ epkgs.vterm ];
   };
 }
