@@ -13,6 +13,7 @@
 
   home.sessionVariables = { STACK_ROOT = "$XDG_DATA_HOME/stack"; };
 
+  # TODO Customize
   services.dunst = {
     enable = true;
     settings = rec {
@@ -45,5 +46,12 @@
       urgency_low = urgency_normal;
       urgency_critical = urgency_normal;
     };
+  };
+
+  # TODO I may replace this with TaffyBar eventually.
+  services.polybar = {
+    enable = true;
+    extraConfig = builtins.readFile "${builtins.toString ./.}/config.ini";
+    script = builtins.readFile "${builtins.toString ./.}/run-polybar";
   };
 }
