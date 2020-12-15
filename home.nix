@@ -22,6 +22,9 @@ in { self, config, pkgs, ... }: {
   news.display = "silent";
 
   imports = [
+    # XDG Base Dir.
+    ./modules/xdg.nix
+
     # Golang
     ./modules/golang.nix
 
