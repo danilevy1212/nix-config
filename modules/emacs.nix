@@ -20,6 +20,9 @@
     # :lang haskell
     # haskell-language-server
     # FIXME https://github.com/korayal/hls-nix
+
+    # :os
+    xclip
   ];
 
   # I cannot live without you, my one true love...
