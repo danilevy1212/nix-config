@@ -11,7 +11,8 @@
     dunst
   ];
 
-  home.sessionVariables = { STACK_ROOT = "$XDG_DATA_HOME/stack"; };
+  # FIXME
+  home.sessionVariables = { STACK_ROOT = "~/.local/share/stack"; };
 
   # TODO Customize
   services.dunst = {

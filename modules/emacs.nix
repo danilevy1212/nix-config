@@ -31,4 +31,9 @@
     # For vterm.
     extraPackages = epkgs: [ epkgs.vterm ];
   };
+
+  # FIXME
+  home.sessionVariables = {
+    DOOMDIR = "~/.config/doom";
+  };
 }
