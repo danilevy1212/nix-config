@@ -14,6 +14,8 @@
   # FIXME
   home.sessionVariables = { STACK_ROOT = "~/.local/share/stack"; };
 
+
+
   # TODO Customize
   services.dunst = {
     enable = true;
@@ -50,6 +52,7 @@
   # TODO I may replace this with TaffyBar eventually.
   services.polybar = {
     enable = true;
+    package = pkgs.polybar.override { pulseSupport = true; };
     extraConfig = builtins.readFile "${builtins.toString ./.}/config.ini";
     script = builtins.readFile "${builtins.toString ./.}/run-polybar";
   };
