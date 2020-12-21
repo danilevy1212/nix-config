@@ -10,6 +10,8 @@
     # Fonts
     hack-font
     dejavu_fonts
+    symbola
+    # FIXME MISSING Quivera, Noto Sans, Noto Sans Symbols
 
     # :lang nix
     nixfmt
