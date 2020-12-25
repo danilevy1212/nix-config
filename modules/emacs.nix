@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, environment, lib, pkgs, ... }:
 
 {
   # Doom emacs dependencies
@@ -25,6 +25,10 @@
 
     # :os
     xclip
+
+    # :checkers
+    languagetool
+    (aspellWithDicts (dicts: with dicts; [ es en en-computers en-science ]))
   ];
 
   # I cannot live without you, my one true love...
