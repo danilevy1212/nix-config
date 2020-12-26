@@ -1,6 +1,4 @@
-{ config, environment, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: {
   # Doom emacs dependencies
   home.packages = with pkgs; [
     # General Dependencies
@@ -29,6 +27,10 @@
     # :checkers
     languagetool
     (aspellWithDicts (dicts: with dicts; [ es en en-computers en-science ]))
+
+    # :tools lookup
+    sqlite
+    wordnet
   ];
 
   # I cannot live without you, my one true love...
@@ -39,7 +41,5 @@
   };
 
   # FIXME
-  home.sessionVariables = {
-    DOOMDIR = "~/.config/doom";
-  };
+  home.sessionVariables = { DOOMDIR = "~/.config/doom"; };
 }

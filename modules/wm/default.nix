@@ -1,20 +1,13 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: {
   home.packages = with pkgs; [
     # Development.
     stack
     cabal-install
     haskellPackages.hoogle
-
-    # Notifications
-    dunst
   ];
 
   # FIXME
   home.sessionVariables = { STACK_ROOT = "~/.local/share/stack"; };
-
-
 
   # TODO Customize
   services.dunst = {
@@ -22,7 +15,7 @@
     settings = rec {
       global = {
         markup = "none";
-        format = ''<big><b>%s</b></big>%b'';
+        format = "<big><b>%s</b></big>%b";
         sort = false;
         alignment = "left";
         bounce_freq = 0;
@@ -54,6 +47,6 @@
     enable = true;
     package = pkgs.polybar.override { pulseSupport = true; };
     extraConfig = builtins.readFile "${builtins.toString ./.}/config.ini";
-    script = builtins.readFile "${builtins.toString ./.}/run-polybar";
+    script = builtins.readFile "${builtins.toString ./.}/run-polybar.sh";
   };
 }

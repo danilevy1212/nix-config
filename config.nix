@@ -1,6 +1,4 @@
 {
-  # Sorry Stallman-chan
+  # Sorry Stallman!
   allowUnfree = true;
-  # For allowing the build of an unsupported package
-  # allowUnsupportedSystem = true;
 }

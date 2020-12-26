@@ -1,12 +1,10 @@
 let homeDir = builtins.getEnv "HOME";
-in { config, lib, pkgs, ... }:
-{
+in { config, lib, pkgs, ... }: {
   programs.git = {
     enable = true;
-    userName  = "Daniel Levy Moreno";
+    userName = "Daniel Levy Moreno";
     userEmail = "daniellevymoreno@gmail.com";
   };
-
 
   # Allow fontconfig to discover fonts and configurations installed through home.packages and nix-env
   fonts.fontconfig.enable = true;
@@ -21,4 +19,17 @@ in { config, lib, pkgs, ... }:
     envExtra = builtins.readFile "${homeDir}/.config/zsh/.zshenv";
     profileExtra = builtins.readFile "${homeDir}/.config/zsh/.zprofile";
   };
+
+  programs.man.enable = false;
+  home.extraOutputsToInstall = [ "man" ];
+
+  # Networking utilities
+  home.packages = (with pkgs.unixtools; [
+    netstat
+    ifconfig
+  ]) ++ (with pkgs; [
+    # System
+    htop
+    neofetch
+  ]);
 }

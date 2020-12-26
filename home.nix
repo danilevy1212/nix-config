@@ -1,4 +1,34 @@
-{ self, config, pkgs, ... }: {
+let modules = [
+    # My Shell configuration.
+    "cli"
+
+    # XDG Base Dir.
+    "xdg"
+
+    # The not quite C.
+    "golang"
+
+    # I cannot live without you, my one true love...
+    "emacs"
+
+    # Xmonad, the functional WM.
+    "wm"
+
+    # The functional lisp.
+    "clj"
+
+    # It's all there dude, in the ☁.
+    "cloud"
+
+    # Abandon hope, all that come here.
+    "nodejs"
+
+    # Normie Apps so I can pretend I am not a nerd.
+    "apps"
+    ];
+    toModulePath = (x: ./. + builtins.toPath "/modules/${x}/default.nix");
+    moduleImports = map toModulePath modules;
+in { self, config, pkgs, ... }: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -20,46 +50,6 @@
   # Be quiet, will you?
   news.display = "silent";
 
-  imports = [
-    # Ma Shell
-    ./modules/cli.nix
-
-    # XDG Base Dir.
-    ./modules/xdg.nix
-
-    # Golang
-    ./modules/golang.nix
-
-    # I cannot live without you, my one true love...
-    ./modules/emacs.nix
-
-    # Fix for: can't set the locale; make sure $LC_* and $LANG are correct`
-    ./modules/man.nix
-
-    # Networking utilities
-    ./modules/networking.nix
-
-    # Xmonad, the functional WM.
-    ./modules/wm.nix
-
-    # The functional lisp
-    ./modules/clojure.nix
-
-    # It's all there, in the ☁.
-    ./modules/cloud.nix
-  ];
-
-  # TODO Modulize: https://nixos.wiki/wiki/Module, https://github.com/mjlbach/nix-dotfiles/blob/flakes_v3/nixpkgs/machines/fedora/home.nix
-  home.packages = with pkgs; [
-    # System
-    htop
-    neofetch
-
-    # Propietary musicality
-    spotify
-
-    # Social closeness
-    rambox
-    skype
-  ];
+  # Modularize! Never compromise! 😎
+  imports = moduleImports;
 }

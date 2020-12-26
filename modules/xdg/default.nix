@@ -1,10 +1,6 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, environment, lib, pkgs, ... }: {
   # TODO Customize.
-  xdg = {
-    enable = true;
-  };
+  xdg = { enable = true; };
 
   # FIXME
   # environment = {
