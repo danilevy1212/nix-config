@@ -4,10 +4,16 @@
     stack
     cabal-install
     haskellPackages.hoogle
+
+    # Notifications
+    dunst
+
+    # TODO Picking things
+    # rofi
   ];
 
   # FIXME
-  home.sessionVariables = { STACK_ROOT = "~/.local/share/stack"; };
+  home.sessionVariables = { STACK_ROOT = "$XDG_DATA_HOME/stack"; };
 
   # TODO Customize
   services.dunst = {

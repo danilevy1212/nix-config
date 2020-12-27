@@ -47,6 +47,12 @@ in { self, config, pkgs, ... }: {
   # changes in each release.
   home.stateVersion = "21.03";
 
+  # Keyboard Layout
+  home.keyboard = {
+    layout = "us(altgr-intl)";
+    options = "ctrl:nocaps";
+  };
+
   # Be quiet, will you?
   news.display = "silent";
 

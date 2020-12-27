@@ -7,5 +7,8 @@
     # Social closeness
     rambox
     skype
+
+    # Browser for the...
+    brave
   ];
 }

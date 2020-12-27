@@ -14,10 +14,10 @@ in { config, lib, pkgs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = false;
-    dotDir = ".config/nix-zsh";
-    initExtra = builtins.readFile "${homeDir}/.config/zsh/.zshrc";
-    envExtra = builtins.readFile "${homeDir}/.config/zsh/.zshenv";
-    profileExtra = builtins.readFile "${homeDir}/.config/zsh/.zprofile";
+    dotDir = ".config/nix-zsh"; # NOTE This is just for easier debugging.
+    initExtra = builtins.readFile ./zshrc;
+    envExtra = builtins.readFile ./zshenv;
+    profileExtra = builtins.readFile ./zprofile;
   };
 
   programs.man.enable = false;

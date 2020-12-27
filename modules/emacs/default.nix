@@ -41,5 +41,5 @@
   };
 
   # FIXME
-  home.sessionVariables = { DOOMDIR = "~/.config/doom"; };
+  home.sessionVariables = { DOOMDIR = "$XDG_CONFIG_HOME/doom"; };
 }

@@ -3,5 +3,5 @@
   programs.go.enable = true;
 
   # FIXME
-  home.sessionVariables = { GOPATH = "~/.local/share/go"; };
+  home.sessionVariables = { GOPATH = "$XDG_DATA_HOME/go"; };
 }
