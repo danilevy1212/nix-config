@@ -27,14 +27,14 @@ export PKG_CONFIG_PATH=/usr/share/pkgconfig:/usr/lib/pkgconfig
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_COLLATE=en_US.UTF-8
-export LC_CTYPE=C.UTF-8
+export LC_CTYPE=C
 
 # Make local executables visible
 export PATH="$HOME/.local/bin:$PATH"
 
 # IBUS
 export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
+export XMODIFIERS=ibus
 export QT_IM_MODULE=ibus
 
 # Rust

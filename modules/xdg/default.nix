@@ -2,7 +2,7 @@
   # TODO Customize.
   xdg = { enable = true; };
 
-  # FIXME
+  # NOTE Uncomment when changing to NixOS.
   # environment = {
   #   sessionVariables = {
   #     # These are the defaults, and xdg.enable does set them, but due to load

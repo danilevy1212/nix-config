@@ -7,9 +7,6 @@
 
     # Notifications
     dunst
-
-    # TODO Picking things
-    # rofi
   ];
 
   # FIXME

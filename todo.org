@@ -3,3 +3,5 @@
 ** TODO Look into lorri, https://christine.website/blog/how-i-start-nix-2020-03-08
 
 ** TODO Might be of interested to start using GO in nix: https://nixos.wiki/wiki/Go
+
+** TODO I INSTALLED https://github.com/EliverLara/Nordic and I am looking at https://wiki.archlinux.org/index.php/GTK to install it. THERE IS A NIXPKG of it in unstable.

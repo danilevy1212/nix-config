@@ -17,10 +17,6 @@
     # :term eshell
     fish
 
-    # :lang haskell
-    # haskell-language-server
-    # FIXME https://github.com/korayal/hls-nix
-
     # :os
     xclip
 

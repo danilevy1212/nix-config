@@ -199,9 +199,6 @@ zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts \
 # Provides the LS_COLORS definitions for GNU ls
 zinit pack lucid wait for ls_colors
 
-## FIXME ALIASES
-# source "./zaliases"
-
 # FIXME For now...
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 
