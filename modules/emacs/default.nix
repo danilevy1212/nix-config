@@ -6,10 +6,14 @@
     ripgrep
 
     # Fonts
+    emacs-all-the-icons-fonts
     hack-font
     dejavu_fonts
     symbola
-    # FIXME MISSING Quivera, Noto Sans, Noto Sans Symbols
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    # FIXME MISSING Quivera
 
     # :lang nix
     nixfmt

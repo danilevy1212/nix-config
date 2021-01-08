@@ -1,7 +1,16 @@
 * Inbox
 
+** TODO Setup [[https://support.nordvpn.com/Connectivity/Linux/1047409422/How-can-I-connect-to-NordVPN-using-Linux-Terminal.htm][nordvpn]].
+
 ** TODO Look into lorri, https://christine.website/blog/how-i-start-nix-2020-03-08
 
 ** TODO Might be of interested to start using GO in nix: https://nixos.wiki/wiki/Go
 
 ** TODO I INSTALLED https://github.com/EliverLara/Nordic and I am looking at https://wiki.archlinux.org/index.php/GTK to install it. THERE IS A NIXPKG of it in unstable.
+
+** TODO autorandr or arandr
+
+** TODO [0/3] It might be worth considering creating my NixOS repo for [[https://discourse.nixos.org/t/can-i-move-etc-nixos-to-my-dotfiles-and-symlink-it-back-to-etc-nixos/4833/12][/etc/nixos]].
+*** TODO Backup in a git gist my configuration.nix before.
+*** TODO git push my home-manager config first. Then it will be as simple as putting the content of this repo there :D!
+*** TODO I can be the owner of \/etc\/nixos! Make sure it works first and repo it!

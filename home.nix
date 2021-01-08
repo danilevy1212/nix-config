@@ -25,6 +25,9 @@ let modules = [
 
     # Normie Apps so I can pretend I am not a nerd.
     "apps"
+
+    # What's going on out there?
+    "io"
     ];
     toModulePath = (x: ./. + builtins.toPath "/modules/${x}/default.nix");
     moduleImports = map toModulePath modules;
@@ -50,7 +53,7 @@ in { self, config, pkgs, ... }: {
   # Keyboard Layout
   home.keyboard = {
     layout = "us(altgr-intl)";
-    options = "ctrl:nocaps";
+    options = [ "ctrl:nocaps" ];
   };
 
   # Be quiet, will you?

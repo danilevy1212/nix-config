@@ -9,7 +9,6 @@ in { config, lib, pkgs, ... }: {
   # Allow fontconfig to discover fonts and configurations installed through home.packages and nix-env
   fonts.fontconfig.enable = true;
 
-  # TODO https://discourse.nixos.org/t/advice-needed-installing-doom-emacs/8806/4 To install my own repos, last comment.
   # ZSH, just as good as eshell
   programs.zsh = {
     enable = true;
@@ -20,16 +19,35 @@ in { config, lib, pkgs, ... }: {
     profileExtra = builtins.readFile ./zprofile;
   };
 
-  programs.man.enable = false;
-  home.extraOutputsToInstall = [ "man" ];
+  # A pretty, modern, terminal.
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font = {
+        normal = { family = "Hack"; };
+        bold = { family = "Hack"; };
+        italic = { family = "Hack"; };
+        size = 9.0;
+      };
+      env = { TERM = "alacritty"; };
+      window = { gtk_theme_variant = "nordic"; };
+      background_opacity = 0.9;
+    };
+  };
 
-  # Networking utilities
-  home.packages = (with pkgs.unixtools; [
-    netstat
-    ifconfig
-  ]) ++ (with pkgs; [
+  # Nordic Terminal
+  xresources.extraConfig = builtins.readFile (pkgs.fetchzip {
+    url = "https://github.com/arcticicestudio/nord-xresources/archive/v0.1.0.tar.gz";
+    sha256 = "1bhlhlk5axiqpm6l2qaij0cz4a53i9hcfsvc3hw9ayn75034xr93";
+  } + "/src/nord");
+
+  # Networking utilities # TODO unixtools and system should be sustem level.
+  home.packages = (with pkgs.unixtools; [ netstat ifconfig ]) ++ (with pkgs; [
     # System
     htop
     neofetch
+
+    # Autocomplete TODO Checkout and contrast with `programs.fzf` option.
+    fzf
   ]);
 }

@@ -8,6 +8,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # Start the xsession IF xmonad is there and we are in .
-if [ "$(tty)" = "/dev/tty1" ] && [ -n "$(command -v xmonad)" ]; then
-  pgrep xmonad || startx
-fi
+# if [ "$(tty)" = "/dev/tty1" ] && [ -n "$(command -v xmonad)" ]; then
+#  pgrep xmonad || startx
+# fi

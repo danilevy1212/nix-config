@@ -7,41 +7,113 @@
 
     # Notifications
     dunst
+
+    # FIXME Replace by xmonad's builtin prompt!
+    dmenu
+
+    # TODO Take out when I deprecate polybar
+    xmonad-log
+
+    # Let there be control over the sound!
+    pulsemixer
+    pavucontrol
+    playerctl
+
+    # Control the screens!
+    arandr
+    xorg.xkill
+
+    # xXxScReeN_SH0TSxXx
+    flameshot
+
+    # Development language
+    haskell-language-server
   ];
 
-  # FIXME
-  home.sessionVariables = { STACK_ROOT = "$XDG_DATA_HOME/stack"; };
+  # TODO Random Screenshots (After setting up rclone)
 
-  # TODO Customize
+  home.sessionVariables = {
+    # Where stack snapshots are located.
+    STACK_ROOT = "$XDG_DATA_HOME/stack";
+
+    # Default theme.
+    GTK_THEME = "Nordic";
+  };
+
+  # Create the xmonad xsession.
+  xsession = {
+    scriptPath = ".xsession-hm";
+    pointerCursor = {
+      name = "capitaine-cursors";
+      package = pkgs.capitaine-cursors;
+    };
+  };
+
+  # Make me pretty!
+  gtk = with pkgs; {
+    enable = true;
+    iconTheme = {
+      name = "Papirus";
+      package = papirus-icon-theme;
+    };
+    theme = {
+      name = "Nordic";
+      package = nordic;
+    };
+  };
+
+  # ALERT ME!
   services.dunst = {
     enable = true;
-    settings = rec {
+    iconTheme = {
+      name = "breeze";
+      package = pkgs.breeze-icons;
+    };
+    settings = {
       global = {
-        markup = "none";
-        format = "<big><b>%s</b></big>%b";
+        allow_markup = true;
+        format = "<b><u>%a</u></b>\\n%s\\n\\n%b";
         sort = false;
         alignment = "left";
+        indicate_hidden = true;
         bounce_freq = 0;
         word_wrap = true;
         ignore_newline = false;
-        geometry = "450x100-15+49";
-        transparency = 10;
+        hide_duplicates_count = true;
+        geometry = "400x50+15+40";
+        transparency = 15;
+        idle_threshold = 0;
+        monitor = 0;
+        follow = "keyboard";
+        sticky_history = true;
+        history_length = 15;
+        show_indicators = false;
         separator_height = 2;
-        padding = 12;
-        horizontal_padding = 20;
-        line_height = 3;
+        padding = 9;
+        horizontal_padding = 12;
+        line_height = 1;
         separator_color = "frame";
-        frame_width = 2;
-        frame_color = "#EC5F67";
+        icon_position = "left";
+        frame_width = 1;
+        frame_color = "#458588";
+        corner_radius = 14;
+        max_icon_size = 80;
       };
-
+      urgency_low = {
+        foreground = "#88c0d0";
+        background = "#282828";
+        timeout = 4;
+      };
       urgency_normal = {
-        foreground = "#CDD3DE";
-        background = "#101010";
+        foreground = "#d79921";
+        background = "#282828";
         timeout = 6;
       };
-      urgency_low = urgency_normal;
-      urgency_critical = urgency_normal;
+      urgency_critical = {
+        foreground = "#cc241d";
+        background = "#282828";
+        timeout = 8;
+      };
     };
   };
 
@@ -49,7 +121,29 @@
   services.polybar = {
     enable = true;
     package = pkgs.polybar.override { pulseSupport = true; };
-    extraConfig = builtins.readFile "${builtins.toString ./.}/config.ini";
+    extraConfig = (builtins.readFile "${builtins.toString ./.}/config.ini") + ''
+
+    # FIXME Doesn't work :(
+    [module/xmonad]
+    type = custom/script
+    exec = "${pkgs.xmonad-log.out}/bin/xmonad-log"
+
+    tail = true
+    '';
     script = builtins.readFile "${builtins.toString ./.}/run-polybar.sh";
+  };
+
+  # Be pretty again.
+  services.picom = {
+    enable = true;
+    backend = "glx";
+    vSync = true;
+    activeOpacity = "1.0";
+    inactiveOpacity = "0.9";
+    fade = true;
+    fadeDelta = 5;
+    shadow = true;
+    shadowOpacity = "0.75";
+    blur = true;
   };
 }
