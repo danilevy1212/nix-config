@@ -44,8 +44,8 @@
   xsession = {
     scriptPath = ".xsession-hm";
     pointerCursor = {
-      name = "capitaine-cursors";
-      package = pkgs.capitaine-cursors;
+      name = "Numix-Cursor";
+      package = pkgs.numix-cursor-theme;
     };
   };
 
@@ -53,12 +53,16 @@
   gtk = with pkgs; {
     enable = true;
     iconTheme = {
-      name = "Papirus";
+      name = "Papirus-Dark";
       package = papirus-icon-theme;
     };
     theme = {
       name = "Nordic";
       package = nordic;
+    };
+    font = {
+      name = "Noto Sans";
+      package = noto-fonts;
     };
   };
 
