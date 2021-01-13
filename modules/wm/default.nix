@@ -125,15 +125,7 @@
   services.polybar = {
     enable = true;
     package = pkgs.polybar.override { pulseSupport = true; };
-    extraConfig = (builtins.readFile "${builtins.toString ./.}/config.ini") + ''
-
-    # FIXME Doesn't work :(
-    [module/xmonad]
-    type = custom/script
-    exec = "${pkgs.xmonad-log.out}/bin/xmonad-log"
-
-    tail = true
-    '';
+    extraConfig = builtins.readFile "${builtins.toString ./.}/config.ini";
     script = builtins.readFile "${builtins.toString ./.}/run-polybar.sh";
   };
 
