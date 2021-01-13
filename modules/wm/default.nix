@@ -31,7 +31,6 @@
   ];
 
   # TODO Random Screenshots (After setting up rclone)
-
   home.sessionVariables = {
     # Where stack snapshots are located.
     STACK_ROOT = "$XDG_DATA_HOME/stack";

@@ -164,20 +164,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice wait lucid
 zinit light zdharma/fast-syntax-highlighting
 
-# FZF 
-[ "$(command -v rg)" ] && \
-    export FZF_DEFAULT_COMMAND="rg --files --hidden --smart-case --glob '!.git/*'"
-
-# Tab completion with fzf
-zinit ice wait lucid
-zinit light Aloxaf/fzf-tab
-
-# give a preview of commandline arguments when completing `kill`
-zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
-zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts \
-       --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' \
-       --preview-window=down:3:wrap
-
 # Provides the LS_COLORS definitions for GNU ls
 zinit pack lucid wait for ls_colors
 

@@ -35,9 +35,19 @@ in { config, lib, pkgs, ... }: {
     };
   };
 
+  # Autocomplete
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = false;
+    enableFishIntegration = false;
+    enableZshIntegration = true;
+    defaultCommand = "fd --type f --type l ";
+  };
+
   # Nordic Terminal
   xresources.extraConfig = builtins.readFile (pkgs.fetchzip {
-    url = "https://github.com/arcticicestudio/nord-xresources/archive/v0.1.0.tar.gz";
+    url =
+      "https://github.com/arcticicestudio/nord-xresources/archive/v0.1.0.tar.gz";
     sha256 = "1bhlhlk5axiqpm6l2qaij0cz4a53i9hcfsvc3hw9ayn75034xr93";
   } + "/src/nord");
 
@@ -46,8 +56,5 @@ in { config, lib, pkgs, ... }: {
     # System
     htop
     neofetch
-
-    # Autocomplete TODO Checkout and contrast with `programs.fzf` option.
-    fzf
   ]);
 }
