@@ -39,7 +39,5 @@
     # For vterm.
     extraPackages = epkgs: [ epkgs.vterm ];
   };
-
-  # FIXME
   home.sessionVariables = { DOOMDIR = "$XDG_CONFIG_HOME/doom"; };
 }
